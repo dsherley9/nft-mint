@@ -1,0 +1,10 @@
+.idea/*
+.vscode/*
+node_modules
+.env*
+.DS_Store
+
+test-reports
+coverage
+/dist
+/src/data/users.ts
