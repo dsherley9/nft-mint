@@ -17,7 +17,8 @@ export default {
     '/node_modules/',
     '/.github/',
     '/.vscode/',
-    '/dist/'
+    '/dist/',
+    '/build/'
   ],
   coverageProvider: "v8",
   preset: 'ts-jest',
