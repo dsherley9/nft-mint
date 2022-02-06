@@ -1,1 +1,3 @@
-module.exports = require("./deploy_contracts")(artifacts, web3);
+const { nftCollectible } = require("../build/nft-collectible");
+
+module.exports = nftCollectible(artifacts, web3);

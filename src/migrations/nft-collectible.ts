@@ -1,11 +1,10 @@
-type Network = "development" | "kovan" | "mainnet";
+import deploymentFactory from './deployment-factory';
 
-module.exports = (artifacts: Truffle.Artifacts, web3: Web3) => {
-  return async (
+async function NFTCollectible (
     deployer: Truffle.Deployer,
-    network: Network,
+    network : Truffle.Network,
     accounts: string[]
-  ) => {
+) {
     const baseTokenURI = "ipfs://QmZbWNKJPAjxXuNFSEaksCJVd1M6DaKQViJBYPK2BdpDEP/";
     const NFTCollectible = artifacts.require("NFTCollectible");
 
@@ -13,7 +12,10 @@ module.exports = (artifacts: Truffle.Artifacts, web3: Web3) => {
 
     const nft = await NFTCollectible.deployed();
     console.log(
-      `Metacoin deployed at ${nft.address} in network: ${network}.`
+      `NFTCollectible deployed at ${nft.address} in network: ${network}.`
     );
-  };
 };
+
+const nftCollectible = deploymentFactory(NFTCollectible);
+export default nftCollectible;
+export { nftCollectible };
